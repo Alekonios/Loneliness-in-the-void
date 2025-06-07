@@ -53,7 +53,7 @@ vec3 RGBToHSV(vec3 color) {
     float cmax = max(color.r, max(color.g, color.b));
     float cmin = min(color.r, min(color.g, color.b));
     float delta = cmax - cmin;
-    
+
     float h = 0.0;
     if (delta != 0.0) {
         if (cmax == color.r) {
@@ -105,15 +105,15 @@ void fragment(){
 	vec2 FlippedUV = vec2(LensThickness) - SCREEN_UV;
 	vec2 FlareVector = (vec2(FlareDistance) - SCREEN_UV) * FlareSpacing;
 	vec3 FinalFlare = vec3(0.0);
-	
+
 	for (int i = 0; i < Flares; ++i){
 		vec2 SUV = fract(SCREEN_UV + FlareVector * vec2(float(i)));
 		float Dist = distance(SUV, vec2(0.5));
 		float Weight = 1.0 - smoothstep(0.0, 0.75, Dist);
 		vec3 BlurredScreen = texture(Screen_Sample, SUV, Blur).rgb;
-		
+
 		BlurredScreen = ApplyThreshold(BlurredScreen, FlareThreshold); //smoothing the screen (the blur effect can make hard edges)
-		
+
 		FinalFlare += BlurredScreen * Weight;
 	}
 	FinalFlare *= texture(FlareMult, SCREEN_UV).rgb;
@@ -123,14 +123,14 @@ void fragment(){
 
 	COLOR.rgb = FinalFlare;
 	COLOR.rgb = AdjustSaturation(FinalFlare, Saturation_);
-	
-	
+
+
 	// Rainbow Effect based on the Flare-Position
 	float factor = distance(SCREEN_UV, vec2(0.5)); // Factor can be based on the distance from the center or any other property
 	FinalFlare = ApplyRainbowEffect(FinalFlare, factor);
-	
-	
-	
+
+
+
 	COLOR.rgb = FinalFlare;
 	COLOR.a = visibility;
 }
