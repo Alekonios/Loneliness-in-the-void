@@ -79,7 +79,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
-GlobalSceneLoader="*res://! EDITOR OBJECTS/scene loader/GlobalSceneLoader.gd"
+GlobalSceneLoader="*res://components/SceneLoader/GlobalSceneLoader.gd"
 
 [display]
 
