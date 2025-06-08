@@ -11,7 +11,7 @@ data = PackedVector3Array(-1.0002, -0.627, 0.6487, -1.0002, 1, -0.6487, -1.0002,
 [node name="Station-Bridge" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_qp208")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -96.9817, 1.30507, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.9817, 1.30507, 0)
 
 [node name="BridgeCamera" type="Camera3D" parent="Player"]
 unique_name_in_owner = true
