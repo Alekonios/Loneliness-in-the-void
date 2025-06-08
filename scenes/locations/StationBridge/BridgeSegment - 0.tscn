@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://nod386qfmhmr"]
+
+[ext_resource type="Script" uid="uid://b6hri8dleo3ap" path="res://scenes/locations/StationBridge/AreaProperties.gd" id="1_vgf1o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3vhn"]
+
+[node name="BridgeSegment - 0" type="Node3D"]
+script = ExtResource("1_vgf1o")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(25, 0, 0, 0, 45, 0, 0, 0, 45, 0, 0, 0)
+shape = SubResource("BoxShape3D_y3vhn")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

@@ -18,6 +18,7 @@ var smoothing_speed_alt: float = 0.008
 var delta: float = Engine.get_frames_per_second()
 
 var StoreRotation: bool = false
+var CameraMovement: bool = true 
 
 func _physics_process(delta: float) -> void:
 	keep_distance_to_player()
@@ -68,8 +69,13 @@ func camera_look_at():
 
 
 	camera.look_at(player.position)
-	camera.rotation.y = clamp(camera.rotation.y, deg_to_rad(80) , deg_to_rad(100))
-	camera.global_position.z = lerp(camera.global_position.z, camera_follow.global_position.z, 0.008 * delta)
+	
+	if CameraMovement == true:
+		camera.rotation.y = clamp(camera.rotation.y, deg_to_rad(80) , deg_to_rad(100))
+		camera.global_position.z = lerp(camera.global_position.z, camera_follow.global_position.z, 0.008 * delta)
+	else:
+		pass
+	
 	#print(camera.rotation.y)
 
 	#if camera.rotation.y >= MaxPositiveRotation.y or camera.rotation.y >= MaxNegativeRotation.y:

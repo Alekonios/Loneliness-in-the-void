@@ -1,7 +1,9 @@
+
+class_name SceneLoader
 extends Node3D
 
 var is_in_area: bool = false
-var level = GlobalSceneLoader.Station_Floor_0
+@export var level: PackedScene
 
 
 func _physics_process(delta: float) -> void:

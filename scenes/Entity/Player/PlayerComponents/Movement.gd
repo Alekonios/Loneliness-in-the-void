@@ -2,6 +2,7 @@ class_name Player
 
 extends CharacterBody3D
 
+@onready var DefaultCamera: Camera3D = %Camera3D
 @export var _Components : Components
 
 @export_category("Setting")
@@ -20,6 +21,7 @@ extends CharacterBody3D
 @export var RunSpeed : float
 @export var Gravity : float
 @export var JumpSpeed : float
+
 
 func _ready() -> void:
 	Speed = StartSpeed

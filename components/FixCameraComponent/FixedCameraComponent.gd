@@ -2,10 +2,10 @@
 class_name FixedCameraComponent
 extends Node
 
-
 @export var PlayerCamera: Camera3D
 @export var FixedCamera: Camera3D
 @export var CameraArea: Area3D
+
 
 var IsInArea: bool = false
 var player: CharacterBody3D
