@@ -100,11 +100,6 @@ _data = {
 [node name="Pistol" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105817, -0.031452, 0)
 script = ExtResource("1_3ku6i")
-weapon_name = "Pistol"
-max_ammo = 12
-amount_ammo = 12
-length = 5.0
-damage = 5.0
 
 [node name="Interactive" type="Node3D" parent="."]
 
